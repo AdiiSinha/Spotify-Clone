@@ -1,0 +1,76 @@
+btn-79,
+.btn-79 *,
+.btn-79 :after,
+.btn-79 :before,
+.btn-79:after,
+.btn-79:before {
+  border: 0 solid;
+  box-sizing: border-box;
+}
+.btn-79 {
+  -webkit-tap-highlight-color: 
+transparent;
+  -webkit-appearance: button;
+  background-color:
+#000;
+  background-image: none;
+  color: 
+#fff;
+  cursor: pointer;
+  /* font-family: "Open Sans", sans-serif; */
+   font-family: "Exo 2", sans-serif;
+  font-size: 100%;
+  font-weight: 2000;
+  line-height: 1.9;
+  margin: 0;
+  -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+  padding: 0;
+}
+.btn-79:disabled {
+  cursor: default;
+}
+.btn-79:-moz-focusring {
+  outline: auto;
+}
+.btn-79 svg {
+  display: block;
+  vertical-align: middle;
+}
+.btn-79 [hidden] {
+  display: none;
+}
+.btn-79 {
+  --height: 45px;
+  background: none;
+  border-radius: 999px;
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  height: var(--height);
+  -webkit-mask-image: none;
+  padding: 0 3rem;
+  position: relative;
+  text-transform: uppercase;
+}
+.btn-79 span {
+  font-weight: 800;
+  mix-blend-mode:multiply;
+}
+.btn-79:before {
+  background: #f8f6f6;
+  border-radius: 20px;
+  content: "";
+  height: calc(var(--height) / 1.7);
+  left: 5px;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 0.2s;
+  width: calc(var(--height) / 1.3);
+
+}
+.btn-79:hover:before {
+  left: 5px;
+  width: 82%;
+}
