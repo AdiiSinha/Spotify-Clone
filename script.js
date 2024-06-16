@@ -38,7 +38,7 @@ const updateSeekbar = () => {
 
 let currentSong = new Audio();
 async function getSongs(){
-let a = await fetch("http://127.0.0.1:5500/songs/");
+let a = await fetch("/songs/");
 let response = await a.text();
 let div = document.createElement("div");
 div.innerHTML = response;
@@ -61,7 +61,7 @@ const playmusic = (track, pause=false) => {
         currentSong.play();
         play.src = "miscelleneous logo/pause-02.svg"
     }
-    document.querySelector(".songInfo").innerHTML = decodeURI(track).replace( "http://127.0.0.1:5500/songs/", "");
+    document.querySelector(".songInfo").innerHTML = decodeURI(track).replace( "/songs/", "");
     document.querySelector(".songTime").innerHTML = "00:00 / 00:00";
 }
 
@@ -72,7 +72,7 @@ async function main() {
     
     if (songs.length > 0) {
         // Set the initial preloaded song but do not play it immediately
-        currentTrack = songs[0].replace("http://127.0.0.1:5500/songs/", "");
+        currentTrack = songs[0].replace("/songs/", "");
         currentSong.src = "/songs/" + currentTrack;
         document.querySelector(".songInfo").innerHTML = decodeURI(currentTrack);
         document.querySelector(".songTime").innerHTML = "00:00 / 00:00";
@@ -85,7 +85,7 @@ async function main() {
     
         <img src="Play Button Logo/music.svg" class="music-svg" alt="">
         <div class="info">
-            <div> ${song.replaceAll("%20", " ").replaceAll("http://127.0.0.1:5500/songs/","")}</div>
+            <div> ${song.replaceAll("%20", " ").replaceAll("/songs/","")}</div>
             <div>Song Artist</div>
         </div>
         <div class="song-list-play-now">
@@ -141,18 +141,18 @@ async function main() {
   // Add an event listener to the previous button
 document.getElementById("previous").addEventListener("click", () => {
     let currentTrack = currentSong.src.split("/").pop();
-    let index = songs.indexOf("http://127.0.0.1:5500/songs/" + currentTrack);
+    let index = songs.indexOf("/songs/" + currentTrack);
     if ((index - 1) >= 0) {
-        playmusic(songs[index - 1].replace("http://127.0.0.1:5500/songs/", ""));
+        playmusic(songs[index - 1].replace("/songs/", ""));
     }
 });
 
 // Add an event listener to the next button
 document.getElementById("next").addEventListener("click", () => {
     let currentTrack = currentSong.src.split("/").pop();
-    let index = songs.indexOf("http://127.0.0.1:5500/songs/" + currentTrack);
+    let index = songs.indexOf("/songs/" + currentTrack);
     if ((index + 1) < songs.length) {
-        playmusic(songs[index + 1].replace("http://127.0.0.1:5500/songs/", ""));
+        playmusic(songs[index + 1].replace("/songs/", ""));
     }
 });
 
@@ -168,10 +168,4 @@ document.querySelector(`.slider`).getElementsByTagName("input")[0].addEventListe
  }
         
 main();
-
-
-
-
-
-
 
